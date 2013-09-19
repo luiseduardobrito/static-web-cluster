@@ -7,10 +7,8 @@ var log = require("winston");
 console.log = log.info;
 
 var express = require('express');
-var routes = require('../routes');
 var http = require('http');
 var path = require('path');
-var expressLayouts = require('express-ejs-layouts');
 
 var Server = function(cb) {
 
@@ -21,9 +19,7 @@ var Server = function(cb) {
 	app.set('port', process.env.PORT || 3000);
 
 	app.use("/js", express.static(path.resolve(__dirname, "../client")));
-	app.use("/assets", express.static(path.resolve(__dirname, "../assets")));
-	app.set('view engine', 'ejs');
-	app.use(expressLayouts)
+	app.use("/", express.static(path.resolve(__dirname, "../static")));
 
 	app.use(express.favicon());
 	
@@ -49,10 +45,7 @@ var Server = function(cb) {
 		app.use(express.errorHandler());
 	}
 
-	// prepare routes
-	routes.bind(app, function(app) {
-		cb(http.createServer(app), app);
-	});
+	cb(http.createServer(app), app);
 }
 
 module.exports = Server;
