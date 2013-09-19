@@ -8,7 +8,7 @@
 
 	var appConfig = {
 
-		state: "production",
+		state: "development",
 
 		development: {
 

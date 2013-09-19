@@ -1,6 +1,6 @@
 module.exports = {
 
-	state: "production",
+	state: "development",
 
 	development: {
 
