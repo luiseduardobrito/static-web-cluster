@@ -1,0 +1,30 @@
+{
+  "name": "node-web-cluster",
+  "version": "0.0.4",
+  "private": true,
+  "scripts": {
+    "start": "node app.js",
+    "debug": "node-inspector --web-port=3333 & node --debug-brk app",
+    "test": "nodeunit tests/*",
+    "debug-test": "node-inspector --web-port=3333 & node --debug-brk `which nodeunit` tests/*",
+    "start-server": "node scripts/single-server.js",
+    "debug-server": "node-inspector --web-port=3333 & node --debug-brk scripts/single-server.js"
+  },
+  "dependencies": {
+    "express": "3.3.5",
+    "winston": "~0.7.2",
+    "extend": "~1.1.3",
+    "validator": "~1.5.0",
+    "socket.io": "~0.9.16",
+    "mongojs": "~0.7.17",
+    "async": "~0.2.9",
+    "express-ejs-layouts": "~0.3.1",
+    "ejs": "~0.8.4"
+  },
+  "devDependencies": {
+    "nodeunit": "~0.8.1"
+  },
+  "engines": {
+    "node": ">=0.10"
+  }
+}

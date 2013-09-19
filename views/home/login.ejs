@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+
+<span style="color: red; display: none" data-subscribe="user/login/error" data-action="$(this).hide().fadeIn('slow')">
+Invalid or incorrect credentials.
+</span>
+
+<form data-module="user" data-method="login">
+	<br><input type="text" id="email" placeholder="name@email.com">
+	<br><input type="password" id="password" placeholder="12345678">
+
+	<% if(destination){ %>
+	<input type="hidden" id="destination" value="<%= destination %>">
+	<% } %>
+
+	<input type="submit"  value="Login">
+</form>
+
+<br />
+
+<a href="/">Back</a>
